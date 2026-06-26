@@ -1,0 +1,23 @@
+{
+  "name": "quantcoder-plugin",
+  "description": "Marketplace for the QuantCoder Claude Code plugin.",
+  "owner": {
+    "name": "nutdnuy",
+    "url": "https://github.com/nutdnuy"
+  },
+  "metadata": {
+    "description": "Claude-compatible plugin wrapper around SL-Mar/quantcoder for research-paper to QuantConnect workflows, local QC linting, and optional QuantConnect validation/backtesting through MCP."
+  },
+  "plugins": [
+    {
+      "name": "quantcoder",
+      "description": "Turn quantitative research into QuantConnect LEAN algorithm drafts with local Ollama models and verification-first agent guidance.",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "nutdnuy",
+        "url": "https://github.com/nutdnuy"
+      }
+    }
+  ]
+}

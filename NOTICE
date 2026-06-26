@@ -1,0 +1,9 @@
+QuantCoder Agent Plugin
+
+This repository includes and modifies QuantCoder from:
+
+https://github.com/SL-Mar/quantcoder
+
+The original QuantCoder project was authored by SL-MAR and licensed under the
+Apache License 2.0. Plugin packaging, Claude Code/Codex manifests, agent skill
+instructions, slash commands, and the stdio MCP wrapper were added by nutdnuy.

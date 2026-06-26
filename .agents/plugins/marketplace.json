@@ -1,0 +1,20 @@
+{
+  "name": "quantcoder-plugin",
+  "interface": {
+    "displayName": "QuantCoder"
+  },
+  "plugins": [
+    {
+      "name": "quantcoder",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data & Analytics"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "quantcoder",
+  "version": "0.1.0",
+  "description": "Use QuantCoder from Claude Code to turn quantitative research papers into QuantConnect LEAN algorithm drafts, lint them, and optionally validate/backtest through QuantConnect.",
+  "author": {
+    "name": "nutdnuy",
+    "url": "https://github.com/nutdnuy"
+  },
+  "homepage": "https://github.com/nutdnuy/quantcoder-plugin",
+  "repository": "https://github.com/nutdnuy/quantcoder-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "quant",
+    "quantconnect",
+    "lean",
+    "algorithmic-trading",
+    "research",
+    "ollama",
+    "mcp"
+  ],
+  "skills": [
+    "./skills/quantcoder-research"
+  ],
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+plugin_root="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+cd "${plugin_root}"
+
+if command -v uv >/dev/null 2>&1; then
+  exec uv run --extra mcp python -m quantcoder.mcp_stdio
+fi
+
+exec python3 -m quantcoder.mcp_stdio

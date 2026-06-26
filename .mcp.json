@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "quantcoder": {
+      "cwd": ".",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd \"${CLAUDE_PLUGIN_ROOT:-$(pwd)}\" && exec scripts/quantcoder-mcp"
+      ]
+    }
+  }
+}
