@@ -1,31 +1,29 @@
 ---
 name: quantcoder-research
-description: Use QuantCoder for quantitative research-paper to QuantConnect LEAN algorithm workflows, including arXiv/deep search, PDF download, summarization, code generation, local QC linting, QuantConnect validation, backtesting, evolution, autonomous mode, and library building. Use when the user mentions QuantCoder, QuantConnect code generation, LEAN algorithms from papers, local Ollama quant research, alpha evolution, or asks to lint/validate/backtest QuantConnect Python code.
+description: Use Claude Code or Codex Agent with QuantCoder utilities for quantitative research-paper to QuantConnect LEAN algorithm workflows, including arXiv/deep search, PDF download, agent-native summarization, agent-native code generation, local QC linting, QuantConnect validation, and backtesting. Use when the user mentions QuantCoder, QuantConnect code generation, LEAN algorithms from papers, Claude/Codex agent quant research, alpha research, or asks to lint/validate/backtest QuantConnect Python code.
 ---
 
 # QuantCoder Research
 
-QuantCoder is a local-first research assistant for turning quantitative papers
-into draft QuantConnect LEAN algorithms. Treat it as a research scaffold, not a
-source of guaranteed trading performance.
+QuantCoder plugin is an agent-native research workflow for turning quantitative
+papers into draft QuantConnect LEAN algorithms. Claude Code or Codex Agent does
+the summarization, reasoning, and code drafting; QuantCoder utilities provide
+paper search/download, local QC linting, and optional QuantConnect
+validation/backtesting. Treat it as a research scaffold, not a source of
+guaranteed trading performance.
 
 ## Preconditions
 
 - Python 3.10+.
-- Install the package from this plugin root:
+- Install the package from this plugin root when CLI utilities are needed:
 
 ```bash
 cd "${CLAUDE_PLUGIN_ROOT:-.}"
 uv run quantcoder --help
 ```
 
-- Ollama must be running for search/summarize/generate workflows:
-
-```bash
-ollama pull qwen2.5-coder:14b
-ollama pull mistral
-curl http://localhost:11434/api/tags
-```
+- Claude Code or Codex is the LLM layer. Do not require a separate local model
+  server for the default plugin workflow.
 
 - QuantConnect validation/backtesting needs environment variables or
   `~/.quantcoder/.env`:
@@ -47,34 +45,32 @@ quantcoder search "momentum trading" --num 5
 quantcoder search "mean reversion" --deep --num 10
 ```
 
-2. Download and summarize:
+2. Download source material:
 
 ```bash
 quantcoder download 1
-quantcoder summarize 1
-quantcoder summaries
 ```
 
-3. Generate a QuantConnect draft:
+3. Summarize with the active agent:
 
-```bash
-quantcoder generate 1 --max-attempts 6
-quantcoder generate 1 --open-in-editor
-```
+- Read the PDF/text or user-provided paper summary.
+- Extract: strategy hypothesis, asset universe, signal formula, rebalance rule,
+  risk controls, data needs, lookback windows, portfolio construction, and
+  expected failure modes.
+- Separate facts from assumptions and interpretations.
 
-4. Verify before interpreting results:
+4. Generate a QuantConnect draft with the active agent:
+
+- Write LEAN Python code directly in the workspace.
+- Prefer simple, auditable implementation over clever abstraction.
+- Add only comments that clarify non-obvious paper-to-code translation choices.
+
+5. Verify before interpreting results:
 
 ```bash
 quantcoder validate generated_code/algorithm_1.py --local-only
 quantcoder validate generated_code/algorithm_1.py
 quantcoder backtest generated_code/algorithm_1.py --start 2020-01-01 --end 2024-01-01
-```
-
-5. Use evolution/autonomous modes only after the base logic is manually reviewed:
-
-```bash
-quantcoder evolve start 1 --gens 3 --variants 5
-quantcoder auto start --query "momentum trading" --max-iterations 50
 ```
 
 ## MCP Tools
@@ -99,13 +95,11 @@ live-trading deployment tool.
 - Treat high Sharpe or strong backtest output as a hypothesis requiring
   out-of-sample validation and risk review.
 - For novel mathematical models, manually compare the paper equations to the
-  generated implementation. Upstream QuantCoder notes that local LLMs may
-  substitute simpler indicator proxies for non-trivial math.
+  generated implementation. Do not substitute simpler indicator proxies unless
+  the user explicitly accepts that approximation.
 
 ## Common Failure Modes
 
-- Ollama is not running or the configured models are missing.
-- `~/.quantcoder/config.toml` has a stale `ollama_base_url`.
 - QuantConnect credentials are absent or have insufficient permissions.
 - Generated code compiles but does not faithfully implement the paper.
 - Backtest results omit realistic fees, slippage, borrow constraints, or

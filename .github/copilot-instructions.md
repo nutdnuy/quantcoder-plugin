@@ -1,6 +1,6 @@
 # Copilot Instructions
 
-This repository packages QuantCoder as a Claude Code and Codex plugin. Keep
+This repository packages QuantCoder as a Claude Code and Codex Agent plugin. Keep
 plugin metadata, skill instructions, slash commands, and MCP configuration in
 sync when changing behavior.
 

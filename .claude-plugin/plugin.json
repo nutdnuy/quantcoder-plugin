@@ -15,7 +15,8 @@
     "lean",
     "algorithmic-trading",
     "research",
-    "ollama",
+    "claude-code",
+    "codex-agent",
     "mcp"
   ],
   "skills": [

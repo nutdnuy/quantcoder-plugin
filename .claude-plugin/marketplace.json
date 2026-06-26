@@ -6,12 +6,12 @@
     "url": "https://github.com/nutdnuy"
   },
   "metadata": {
-    "description": "Claude-compatible plugin wrapper around SL-Mar/quantcoder for research-paper to QuantConnect workflows, local QC linting, and optional QuantConnect validation/backtesting through MCP."
+    "description": "Claude Code/Codex Agent-native plugin wrapper around SL-Mar/quantcoder for research-paper to QuantConnect workflows, local QC linting, and optional QuantConnect validation/backtesting through MCP."
   },
   "plugins": [
     {
       "name": "quantcoder",
-      "description": "Turn quantitative research into QuantConnect LEAN algorithm drafts with local Ollama models and verification-first agent guidance.",
+      "description": "Turn quantitative research into QuantConnect LEAN algorithm drafts with Claude Code / Codex Agent and verification-first guidance.",
       "version": "0.1.0",
       "source": "./",
       "author": {

@@ -15,7 +15,8 @@
     "lean",
     "algorithmic-trading",
     "research",
-    "ollama",
+    "claude-code",
+    "codex-agent",
     "mcp"
   ],
   "skills": "./skills/",
@@ -23,7 +24,7 @@
   "interface": {
     "displayName": "QuantCoder",
     "shortDescription": "Research-paper to QuantConnect workflow for Codex.",
-    "longDescription": "A Codex plugin wrapper around SL-Mar/quantcoder. It provides workflow guidance, slash-command equivalents, and MCP tools for QuantConnect documentation, local QC linting, validation, and backtesting. QuantCoder is experimental and should be used for research scaffolding with manual verification, not as a source of guaranteed trading performance.",
+    "longDescription": "A Codex Agent-native plugin wrapper around SL-Mar/quantcoder. It provides workflow guidance, slash-command equivalents, and MCP tools for QuantConnect documentation, local QC linting, validation, and backtesting. Codex performs the reasoning and LEAN code drafting; QuantCoder utilities support verification. Use it for research scaffolding with manual verification, not as a source of guaranteed trading performance.",
     "developerName": "nutdnuy",
     "category": "Data & Analytics",
     "capabilities": [
